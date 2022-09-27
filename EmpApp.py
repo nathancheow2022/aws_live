@@ -33,8 +33,7 @@ def submit():
 def searchEmpButton():
     return render_template('search.html')
 
-
-@app.route("/searchEmp", methods=['POST','GET'])
+@app.route("/searchEmp", methods=['GET', 'POST'])
 def searchEmp():
     emp_id = request.form.get('emp_id')
     cursor = db_conn.cursor()
