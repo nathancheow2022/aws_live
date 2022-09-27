@@ -6,93 +6,127 @@
     <title>Search Bar</title>
 </head>
 <body>
-        <h1> Search Employee</h1>
 
    
-        <div class="searchBox">
-            <input class="searchInput"type="text" name="emp_id" placeholder="Search" id="emp_id">
-            <button class="searchButton" href="#">
-                <i  class="material-icons">
-                    <img src="{{ url_for('static',filename='search.png') }}" style="width:20px;height:20px;">
-                </i>
-            </button>
-         <div class="button">
-          <input action="/searchEmp" type="submit" value="Search">
-        </div>
-        </div>
+        <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+<main>
+	<h1>Search Employee</h1>
+	
+	<div class="SearchBox">
+		<input type="text" class="SearchBox-input" placeholder="Insert Details">
+	
+			<button class="SearchBox-button">
+				<i class="SearchBox-icon  material-icons">search</i>
+			</button>
+		
+	</div>
+	
+</main>
 
 
 </body>
 </html>
 
 <style>
+:root {
+	--primary-color: #00bcd4;
+	--accent-color: #f50057;
+
+	--text-color: #263238;
+	--body-color: #80deea;
+	--main-font: 'roboto';
+	--font-bold: 700;
+	--font-regular: 400;
+}
+* { box-sizing: border-box }
+
 body {
-background: linear-gradient(135deg, #71b7e6, #9b59b6);
+	color: var(--text-color);
+	background: linear-gradient(135deg, #71b7e6, #9b59b6);
+	font-family: var(--main-font), Arial;
+	font-weight: var(--font-regular);
 }
-
-.searchBox {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform:  translate(-50%,50%);
-    background: #2f3640;
-    height: 40px;
-    border-radius: 40px;
-    padding: 10px;
+main{ 
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	width: 100vw;
+	height: 100vh;
+}
+h1 { font-weight: var(--font-bold) }
+input, 
+button {
+	border: none;
+	background: none;
+	outline: 0;
 
 }
-
-h1 {
-  display: block;
-  margin: 400px auto 25px auto;
-  text-align: center;
-  font-size: 1.92em;
-  font-weight: 600;
-  letter-spacing: -0.055em;
+button {cursor: pointer}
+.SearchBox-input::placeholder {/* No es un seudoelemento estandar */
+ color:white;
+	opacity: .6;
+}
+/* Chrome, Opera ySafari */
+.SearchBox-input::-webkit-input-placeholder {
+  color: white;
+}
+/* Firefox 19+ */
+.SearchBox-input::-moz-placeholder {
+  color: white;
+}
+/* IE 10+ y Edge */
+.SearchBox-input:-ms-input-placeholder {
+  color: white;
+}
+/* Firefox 18- */
+#formGroupExampleInput:-moz-placeholder {
   color: white;
 }
 
-.searchBox:hover > .searchInput {
-    width: 240px;
-    padding: 0 6px;
-}
 
-.searchBox:hover > .searchButton {
-  background: black;
-  color : #2f3640;
-}
 
-.searchButton {
-    color: white;
-    float: right;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    background: #2f3640;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transition: 0.4s;
+.SearchBox {
+	--height: 4em;
+	display: flex;
+	
+	border-radius: var(--height);
+	background-color: var(--primary-color);
+	height: var(--height);
 }
+	.SearchBox:hover .SearchBox-input {
+		padding-left: 2em;
+		padding-right: 1em;
+		width: 240px;
+	}
+	.SearchBox-input {
+		width: 0;
+		font-size: 1.2em;
+		color: #fff;
+		transition: .45s;
+	}
+	.SearchBox-button {
+		display: flex;
+		border-radius: 50%;
+		width: var(--height);
+		height: var(--height);
+		background-color: var(--accent-color);
+		transition: .3s;
+	}
+	.SearchBox-button:active  {
+		transform: scale(.85);
+	}
+	.SearchBox-icon {
+		margin: auto;
+		color: #fff;
+	}
 
-.searchInput {
-    border:none;
-    background: none;
-    outline:none;
-    float:left;
-    padding: 0;
-    color: white;
-    font-size: 16px;
-    transition: 0.4s;
-    line-height: 40px;
-    width: 0px;
 
-}
-
-@media screen and (max-width: 620px) {
-.searchBox:hover > .searchInput {
-    width: 150px;
-    padding: 0 6px;
-}
+@media screen and (min-width: 400px){
+	.SearchBox:hover .SearchBox-input {
+		width: 500px;
+	}
 }
 </style>
