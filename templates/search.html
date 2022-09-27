@@ -11,11 +11,14 @@
    
         <div class="searchBox">
             <input class="searchInput"type="text" name="emp_id" placeholder="Search" id="emp_id">
-            <button action="/searchEmp" class="searchButton" href="#">
+            <button class="searchButton" href="#">
                 <i  class="material-icons">
                     <img src="{{ url_for('static',filename='search.png') }}" style="width:20px;height:20px;">
                 </i>
             </button>
+         <div class="button">
+          <input action="/searchEmp" type="submit" value="Search">
+        </div>
         </div>
 
 
