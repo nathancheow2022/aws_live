@@ -11,9 +11,9 @@
    
         <div class="searchBox">
             <input class="searchInput"type="text" name="emp_id" placeholder="Search" id="emp_id">
-            <button formaction="/searchEmp" class="searchButton" href="#">
+            <button class="searchButton" href="#">
                 <i  class="material-icons">
-                    <img src="{{ url_for('static',filename='search.png') }}" style="width:20px;height:20px;">
+                    <img formaction="/searchEmp" src="{{ url_for('static',filename='search.png') }}" style="width:20px;height:20px;">
                 </i>
             </button>
         </div>
