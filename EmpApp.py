@@ -25,13 +25,17 @@ table = 'employee'
 def home():
     return render_template('AddEmp.html') #default page
 
+@app.route("/submit", methods=['GET', 'POST'])
+def submit():
+    return render_template('AddEmp.html')
+
 
 @app.route("/about", methods=['POST'])
 def about():
     return render_template('www.intellipaat.com')
 
 
-@app.route("/addemp", methods=['POST'])
+@app.route("/addemp", methods=['POST','GET'])
 def AddEmp():
     emp_id = request.form['emp_id']
     first_name = request.form['first_name']
