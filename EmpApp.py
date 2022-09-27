@@ -43,22 +43,22 @@ def searchEmp():
     first_name = cursor.fetchone()
     first_name = ''.join(first_name)
 
-    query2 = "SELECT last_name FROM employee WHERE emp_id = '{}'".format(searchbox)
+    query2 = "SELECT last_name FROM employee WHERE emp_id = '{}'".format(emp_id)
     cursor.execute(query2)
     last_name = cursor.fetchone()
     last_name = ''.join(last_name)
 
-    query3 = "SELECT pri_skill FROM employee WHERE emp_id = '{}'".format(searchbox)
+    query3 = "SELECT pri_skill FROM employee WHERE emp_id = '{}'".format(emp_id)
     cursor.execute(query3)
     pri_skill = cursor.fetchone()
     pri_skill = ''.join(pri_skill)
 
-    query4 = "SELECT location FROM employee WHERE emp_id = '{}'".format(searchbox)
+    query4 = "SELECT location FROM employee WHERE emp_id = '{}'".format(emp_id)
     cursor.execute(query4)
     location = cursor.fetchone()
     location = ''.join(location)
 
-    query5 = "SELECT salary FROM employee WHERE emp_id = '{}'".format(searchbox)
+    query5 = "SELECT salary FROM employee WHERE emp_id = '{}'".format(emp_id)
     cursor.execute(query5)
     salary = cursor.fetchone()
     salary = ''.join(salary)
