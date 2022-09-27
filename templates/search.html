@@ -4,17 +4,92 @@
 <head>
     <meta charset="utf-8" />
     <title>Search Bar</title>
-    <link rel="stylesheet" href="style.css">
 </head>
 <body>
+        <h1> Search Employee</h1>
 
-    <div class="container">
-        <form action="" class="search-bar">
-            <input type="text" placeholder="Search Employee Detail" name="q">
-            <button type="submit"><img src="images/search.png"></button>
-        </form>
-    </div>
+   
+        <div class="searchBox">
+            <input class="searchInput"type="text" name="" placeholder="Search">
+            <button class="searchButton" href="#">
+                <i class="material-icons">
+                    <image src="search.png " style="width:20px;height:20px;">
+                </i>
+            </button>
+        </div>
 
 
 </body>
 </html>
+
+<style>
+body {
+background: linear-gradient(135deg, #71b7e6, #9b59b6);
+}
+
+.searchBox {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform:  translate(-50%,50%);
+    background: #2f3640;
+    height: 40px;
+    border-radius: 40px;
+    padding: 10px;
+
+}
+
+h1 {
+  display: block;
+  margin: 400px auto 25px auto;
+  text-align: center;
+  font-size: 1.92em;
+  font-weight: 600;
+  letter-spacing: -0.055em;
+  color: white;
+}
+
+.searchBox:hover > .searchInput {
+    width: 240px;
+    padding: 0 6px;
+}
+
+.searchBox:hover > .searchButton {
+  background: black;
+  color : #2f3640;
+}
+
+.searchButton {
+    color: white;
+    float: right;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #2f3640;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.4s;
+}
+
+.searchInput {
+    border:none;
+    background: none;
+    outline:none;
+    float:left;
+    padding: 0;
+    color: white;
+    font-size: 16px;
+    transition: 0.4s;
+    line-height: 40px;
+    width: 0px;
+
+}
+
+@media screen and (max-width: 620px) {
+.searchBox:hover > .searchInput {
+    width: 150px;
+    padding: 0 6px;
+}
+}
+</style>
