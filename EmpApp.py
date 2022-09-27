@@ -29,15 +29,76 @@ def home():
 def submit():
     return render_template('registration.html')
 
-
-@app.route("/searchEmpButton", methods=['POST','GET'])
-def search():
+@app.route("/searchEmpButton", methods=['GET', 'POST'])
+def searchEmpButton():
     return render_template('search.html')
+
+
+@app.route("/searchEmp", methods=['POST','GET'])
+def searchEmp():
+    emp_id = request.form.get('emp_id')
+    cursor = db_conn.cursor()
+    query = "SELECT first_name FROM employee WHERE emp_id = '{}'".format(emp_id)
+    cursor.execute(query)
+    first_name = cursor.fetchone()
+    first_name = ''.join(first_name)
+
+    query2 = "SELECT last_name FROM employee WHERE emp_id = '{}'".format(searchbox)
+    cursor.execute(query2)
+    last_name = cursor.fetchone()
+    last_name = ''.join(last_name)
+
+    query3 = "SELECT pri_skill FROM employee WHERE emp_id = '{}'".format(searchbox)
+    cursor.execute(query3)
+    pri_skill = cursor.fetchone()
+    pri_skill = ''.join(pri_skill)
+
+    query4 = "SELECT location FROM employee WHERE emp_id = '{}'".format(searchbox)
+    cursor.execute(query4)
+    location = cursor.fetchone()
+    location = ''.join(location)
+
+    query5 = "SELECT salary FROM employee WHERE emp_id = '{}'".format(searchbox)
+    cursor.execute(query5)
+    salary = cursor.fetchone()
+    salary = ''.join(salary)
+
+    return render_template('EdtandDeleteEmp.html',first_name = first_name , last_name = last_name,pri_skill = pri_skill,location = location,
+                           salary = salary,emp_id = emp_id)
 
 @app.route("/about", methods=['POST'])
 def about():
     return render_template('www.intellipaat.com')
 
+@app.route("/updateEmp", methods=['POST','GET'])
+def updateEmp():
+    emp_id = request.form.get('emp_id')
+    f_name = request.form.get('first_name')
+    l_name = request.form.get('last_name')
+    pri_skill = request.form.get('pri_skill')
+    location = request.form.get('location')
+    salary = request.form.get('salary')
+
+    update_sql = "Update employee set first_name = %s, last_name = %s,pri_skill = %s,location = %s, salary = %s where emp_id = %s"
+    cursor = db_conn.cursor()
+
+    cursor.execute(update_sql, (f_name, l_name, pri_skill, location, salary,emp_id))
+    db_conn.commit()
+
+    return render_template('EdtandDeleteEmp.html')
+
+@app.route("/deleteEmp", methods=['POST','GET'])
+def search():
+
+    emp_id = request.form.get('emp_id')
+    
+    delete_sql = "Delete from employee where emp_id = %s"
+    cursor = db_conn.cursor()
+
+    cursor.execute(delete_sql, (emp_id))
+    db_conn.commit()
+
+    return render_template('EdtandDeleteEmp.html')
 
 @app.route("/addemp", methods=['POST','GET'])
 def AddEmp():
@@ -46,9 +107,10 @@ def AddEmp():
     last_name = request.form['last_name']
     pri_skill = request.form['pri_skill']
     location = request.form['location']
+    salary = request.form['salary']
     emp_image_file = request.files['emp_image_file']
 
-    insert_sql = "INSERT INTO employee VALUES (%s, %s, %s, %s, %s)"
+    insert_sql = "INSERT INTO employee VALUES (%s, %s, %s, %s, %s,%s)"
     cursor = db_conn.cursor()
 
     if emp_image_file.filename == "":
@@ -56,7 +118,7 @@ def AddEmp():
 
     try:
 
-        cursor.execute(insert_sql, (emp_id, first_name, last_name, pri_skill, location))
+        cursor.execute(insert_sql, (emp_id, first_name, last_name, pri_skill, location,salary))
         db_conn.commit()
         emp_name = "" + first_name + " " + last_name
         # Uplaod image file in S3 #
@@ -67,7 +129,7 @@ def AddEmp():
         cursor.close()
 
     print("all modification done...")
-    return render_template('AddEmpOutput.html', name=emp_name)
+    return render_template('registration.html')
 
 
 if __name__ == '__main__':
