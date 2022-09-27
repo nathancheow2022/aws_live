@@ -27,7 +27,7 @@ def home():
 
 @app.route("/submit", methods=['GET', 'POST'])
 def submit():
-    return render_template('AddEmp.html')
+    return render_template('registration.html')
 
 
 @app.route("/about", methods=['POST'])
