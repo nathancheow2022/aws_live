@@ -44,11 +44,13 @@
         <div class="button">
           <input type="submit" value="Register">
         </div>
-
-        <div class="button1">
-          <input type="submit" name="search" value="Search Employee">
-        </div>
-      </form>
+        </form>
+        <form action="/searchEmpButton" autocomplete="on" method = "POST">
+			<button type="submit" style=" height: 45px;
+   margin: 35px 0  height: 100%; width: 100%; border-radius: 5px; border: none; color: #fff;font-size: 18px;  font-weight: 500;letter-spacing: 1px;cursor: pointer;transition: all 0.3s ease;background: linear-gradient(135deg, #71b7e6, #9b59b6);
+ ">Search Employee</button>
+<!--		<a href="/searchEmp" type="submit">Search Employee</a>-->
+		</form>
     </div>
   </div>
 
@@ -121,10 +123,7 @@ form .input-box span.details{
   border-bottom-width: 2px;
   transition: all 0.3s ease;
 }
-.user-details .input-box input:focus,
-.user-details .input-box input:valid{
-  border-color: #9b59b6;
-}
+
  form .gender-details .gender-title{
   font-size: 20px;
   font-weight: 500;
@@ -168,18 +167,8 @@ form .input-box span.details{
    margin: 35px 0
  }
 
-  form .button1 input{
-   height: 100%;
-   width: 100%;
-   border-radius: 5px;
-   border: none;
-   color: #fff;
-   font-size: 18px;
-   font-weight: 500;
-   letter-spacing: 1px;
-   cursor: pointer;
-   transition: all 0.3s ease;
-   background: linear-gradient(135deg, #71b7e6, #9b59b6);
+  form.button1 input{
+   height: 100%; width: 100%; border-radius: 5px; border: none; color: #fff;font-size: 18px;  font-weight: 500;letter-spacing: 1px;cursor: pointer;transition: all 0.3s ease;background: linear-gradient(135deg, #71b7e6, #9b59b6);
  }
  form .button1 input:hover{
   /* transform: scale(0.99); */
