@@ -88,7 +88,7 @@ def updateEmp():
     return render_template('EdtandDeleteEmp.html')
 
 @app.route("/deleteEmp", methods=['POST','GET'])
-def search():
+def deleteEmp():
 
     emp_id = request.form.get('emp_id')
     
