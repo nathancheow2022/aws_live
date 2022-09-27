@@ -29,9 +29,7 @@ def home():
 def submit():
     return render_template('registration.html')
 
-@app.route("/search", methods=['GET', 'POST'])
-def submit():
-    return render_template('search.html')
+
 
 
 @app.route("/about", methods=['POST'])
