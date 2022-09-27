@@ -30,7 +30,9 @@ def submit():
     return render_template('registration.html')
 
 
-
+@app.route("/searchEmpButton", methods=['POST','GET'])
+def search():
+    return render_template('search.html')
 
 @app.route("/about", methods=['POST'])
 def about():
