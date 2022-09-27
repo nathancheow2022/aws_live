@@ -8,27 +8,27 @@
   <div class="container">
     <div class="title">Employee Registration</div>
     <div class="content">
-      <form action="#">
+      <form action="/addemp" autocomplete="on" method = "POST" enctype="multipart/form-data">
         <div class="user-details">
           <div class="input-box">
             <span class="details">Employee ID</span>
-            <input type="text" placeholder="Enter employee's ID" required>
+            <input type="text" placeholder="Enter employee's ID" name = "emp_id"required>
           </div>
           <div class="input-box">
             <span class="details">First Name</span>
-            <input type="text" placeholder="Enter employee's name" required>
+            <input type="text" placeholder="Enter employee's name" name ="first_name" required>
           </div>
           <div class="input-box">
             <span class="details">Last Name</span>
-            <input type="text" placeholder="Enter employee's name" required>
+            <input type="text" placeholder="Enter employee's name" name="last_name" required>
           </div>
           <div class="input-box">
             <span class="details">Primary Skills</span>
-            <input type="text" placeholder="Enter employee's primary skill" required>
+            <input type="text" placeholder="Enter employee's primary skill" name="pri_skill"required>
           </div>
           <div class="input-box">
             <span class="details">Location</span>
-            <input type="text" placeholder="Enter employee's address" required>
+            <input type="text" placeholder="Enter employee's address" name="location" required>
           </div>
             <div>
                 <span class="details">Image</span>
