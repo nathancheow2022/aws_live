@@ -1,135 +1,84 @@
 ﻿<!DOCTYPE html>
-
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<html>
 <head>
-    <meta charset="utf-8" />
-    <title>Search Bar</title>
+	<meta name="viewport" contect="width=device-width,initial-scale="1.0">
+	<title>Search Bar</title>
+	<link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-   
-        <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
-<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
-<main>
-	<h1>Search Employee</h1>
+
+<div class="container">
 	
-	<div class="SearchBox">
-		<input id="emp_id" name="emp_id" type="text" class="SearchBox-input" placeholder="Insert Details">
-	
-		<div class="button">
-          <input action="/searchEmp" type="submit" value="Update Details">
-        </div>
-			<button formaction="/searchEmp" class="SearchBox-button">
-				<i class="SearchBox-icon  material-icons">search</i>
-			</button>
-		
-	</div>
-	
-</main>
+		<form action="" class="search-bar">
+			<input type="text" placeholder="Search Employee Detail" name="q">
+			<button type="submit">
+			<img src="{{ url_for('static',filename='search.png') }}" style="width:20px;height:20px;">
+		</form>
+</div>
 
 
 </body>
 </html>
 
 <style>
-:root {
-	--primary-color: #00bcd4;
-	--accent-color: #f50057;
-
-	--text-color: #263238;
-	--body-color: #80deea;
-	--main-font: 'roboto';
-	--font-bold: 700;
-	--font-regular: 400;
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: 'Poppins', sans-serif;
 }
-* { box-sizing: border-box }
 
-body {
-	color: var(--text-color);
-	background: linear-gradient(135deg, #71b7e6, #9b59b6);
-	font-family: var(--main-font), Arial;
-	font-weight: var(--font-regular);
-}
-main{ 
+.container{
+	width: 100%;
+	min-height: 100vh;
+	padding: 5%;
+	background-image: linear-gradient(rgba(0,8,51,0.9),rgba(0,8,51,0.9)), url(images/bacground.jpg);
+	background-position: center;
+	background-size: cover;
 	display: flex;
-	flex-direction: column;
-	justify-content: center;
 	align-items: center;
-	width: 100vw;
-	height: 100vh;
-}
-h1 { font-weight: var(--font-bold) }
-input, 
-button {
-	border: none;
-	background: none;
-	outline: 0;
-
-}
-button {cursor: pointer}
-.SearchBox-input::placeholder {/* No es un seudoelemento estandar */
- color:white;
-	opacity: .6;
-}
-/* Chrome, Opera ySafari */
-.SearchBox-input::-webkit-input-placeholder {
-  color: white;
-}
-/* Firefox 19+ */
-.SearchBox-input::-moz-placeholder {
-  color: white;
-}
-/* IE 10+ y Edge */
-.SearchBox-input:-ms-input-placeholder {
-  color: white;
-}
-/* Firefox 18- */
-#formGroupExampleInput:-moz-placeholder {
-  color: white;
+	justify-content: center;
 }
 
 
 
-.SearchBox {
-	--height: 4em;
+.search-bar{
+	width: 100%;
+	max-width: 700px;
+	background: rgba(255, 255, 255, 0.2);
 	display: flex;
-	
-	border-radius: var(--height);
-	background-color: var(--primary-color);
-	height: var(--height);
+	align-items: center;
+	border-radius: 60px;
+	padding: 10px 20px;
+	backdrop-filter: blur(4px) saturate(280%);
 }
-	.SearchBox:hover .SearchBox-input {
-		padding-left: 2em;
-		padding-right: 1em;
-		width: 240px;
-	}
-	.SearchBox-input {
-		width: 0;
-		font-size: 1.2em;
-		color: #fff;
-		transition: .45s;
-	}
-	.SearchBox-button {
-		display: flex;
-		border-radius: 50%;
-		width: var(--height);
-		height: var(--height);
-		background-color: var(--accent-color);
-		transition: .3s;
-	}
-	.SearchBox-button:active  {
-		transform: scale(.85);
-	}
-	.SearchBox-icon {
-		margin: auto;
-		color: #fff;
-	}
 
+.search-bar input{
+	background: transparent;
+	flex: 1;
+	border: 0;
+	outline: none;
+	padding: 24px 20px;
+	font-size: 20px;
+	color: #cac7ff;
+}
 
-@media screen and (min-width: 400px){
-	.SearchBox:hover .SearchBox-input {
-		width: 500px;
-	}
+::placeholder{
+	color: #cac7ff;
+}
+
+.search-bar button img{
+	width: 25px;
+}
+
+.search-bar button{
+	border: 0;
+	border-radius: 50%;
+	width: 60px;
+	height: 60px;
+	background: #58629b;
+	cursor: pointer;
 }
 </style>
