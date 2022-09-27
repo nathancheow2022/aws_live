@@ -12,40 +12,36 @@
         <div class="user-details">
           <div class="input-box">
             <span class="details">Employee ID</span>
-            <input type="text" placeholder="Enter employee's ID" name = "emp_id"required>
+            <input type="text" value="{{ emp_id }}" placeholder="Enter employee's ID" name = "emp_id" id="emp_id" required>
           </div>
           <div class="input-box">
             <span class="details">First Name</span>
-            <input type="text" placeholder="Enter employee's name" name ="first_name" required>
+            <input type="text" value="{{ first_name }}" placeholder="Enter employee's name" name ="first_name" id="first_name" required>
           </div>
           <div class="input-box">
             <span class="details">Last Name</span>
-            <input type="text" placeholder="Enter employee's name" name="last_name" required>
+            <input type="text" value="{{ last_name }}" placeholder="Enter employee's name" name="last_name" id="last_name" required>
           </div>
           <div class="input-box">
             <span class="details">Primary Skills</span>
-            <input type="text" placeholder="Enter employee's primary skill" name="pri_skill"required>
+            <input type="text" value="{{ pri_skill }}" placeholder="Enter employee's primary skill" id="pri_skill" name="pri_skill"required>
           </div>
           <div class="input-box">
             <span class="details">Location</span>
-            <input type="text" placeholder="Enter employee's address" name="location" required>
+            <input type="text" value="{{ location }}" placeholder="Enter employee's address" id="location" name="location" required>
           </div>
 
           <div class="input-box">
             <span class="details">Salary</span>
-            <input type="text" placeholder="Enter employee's salary" name="salary" required>
+            <input type="text" value="{{ salary }}" placeholder="Enter employee's salary" id="salary" name="salary" required>
           </div>
-            <div>
-                <span class="details">Image</span>
-                <input type=file name="emp_image_file" style="height:25px;font-size:14pt;color:grey;"> <br><br> 
-               </div>
 
         </div>
         <div class="button">
-          <input type="submit" value="Update Details">
+          <input action="/updateEmp" type="submit" value="Update Details">
         </div>
         </form>
-        <form action="/searchEmpButton" autocomplete="on" method = "POST">
+        <form action="/deleteEmp" autocomplete="on" method = "POST">
 			<button type="submit" style=" height: 45px;
    margin: 35px 0  height: 100%; width: 100%; border-radius: 5px; border: none; color: #fff;font-size: 18px;  font-weight: 500;letter-spacing: 1px;cursor: pointer;transition: all 0.3s ease;background: linear-gradient(135deg, #71b7e6, #9b59b6);
  ">Delete</button>
