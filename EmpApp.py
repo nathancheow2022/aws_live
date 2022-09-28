@@ -60,7 +60,8 @@ def searchEmp():
     cursor.execute(query6)
     salary = cursor.fetchone()
 
-    return render_template('EdtandDeleteEmp.html',emp_id = emp_id)
+    return render_template('EdtandDeleteEmp.html',emp_id = emp_id,first_name=first_name,last_name = last_name,pri_skill = pri_skill,
+                           location = location, salary = salary)
 
 @app.route("/about", methods=['POST'])
 def about():
