@@ -8,30 +8,17 @@
   <div class="container">
     <div class="title">Search Employee</div>
     <div class="content">
-      <form  autocomplete="on" method = "POST" enctype="multipart/form-data">
-        <div class="user-details">
-         
-          
-
-          <div class="input-box">
-            <span class="details">Insert ID</span>
-            <input type="text" placeholder="Insert Employee Details" name="search" id="search">
-          </div>
-            
-
-        </div>
-        
-        </form>
-        <form autocomplete="on" method = "POST">
-			<button formaction="/searchEmp" type="submit" style=" height: 45px;
-   margin: 35px 0  height: 100%; width: 100%; border-radius: 5px; border: none; color: #fff;font-size: 18px;  font-weight: 500;letter-spacing: 1px;cursor: pointer;transition: all 0.3s ease;background: linear-gradient(135deg, #71b7e6, #9b59b6);
- ">Search Employee</button>
-<!--		<a href="/searchEmp" type="submit">Search Employee</a>-->
-		
-<div class="button">
-          <input type="submit" value="Cancel">
-        </div>
-</form>
+<form autocomplete="on" method="POST" enctype="multipart/form-data">
+                        <div class="input-group">
+                            <input class="input--style-1" type="number" placeholder="Employee ID:" name="emp_id" id="emp_id">
+                        </div>
+                        <div class="p-t-20">
+                            <button class="btn btn--radius btn--green" formaction="/searchEmp" type="submit">Search</button>
+                        </div>
+                        <div class="p-t-20">
+                            <button class="btn btn--radius btn--green" formaction="/backMain" type="submit">Back</button>
+                        </div>
+                    </form>
         
     </div>
   </div>
