@@ -41,27 +41,22 @@ def searchEmp():
     query = "SELECT first_name FROM employee WHERE emp_id = '{}'".format(emp_id)
     cursor.execute(query)
     first_name = cursor.fetchone()
-    first_name = ''.join(first_name)
 
     query2 = "SELECT last_name FROM employee WHERE emp_id = '{}'".format(emp_id)
     cursor.execute(query2)
     last_name = cursor.fetchone()
-    last_name = ''
 
     query3 = "SELECT pri_skill FROM employee WHERE emp_id = '{}'".format(emp_id)
     cursor.execute(query3)
     pri_skill = cursor.fetchone()
-    pri_skill = ''
 
     query4 = "SELECT location FROM employee WHERE emp_id = '{}'".format(emp_id)
     cursor.execute(query4)
     location = cursor.fetchone()
-    location = ''
 
     query5 = "SELECT salary FROM employee WHERE emp_id = '{}'".format(emp_id)
     cursor.execute(query5)
     salary = cursor.fetchone()
-    salary = ''
 
     return render_template('EdtandDeleteEmp.html',first_name = first_name , last_name = last_name,pri_skill = pri_skill,location = location,
                            salary = salary,emp_id = emp_id)
