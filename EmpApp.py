@@ -67,7 +67,7 @@ def searchEmp():
     query6 = "SELECT salary FROM employee WHERE emp_id = '{}'".format(emp_id)
     cursor.execute(query6)
     salary = cursor.fetchone()
-    salary = ''.join(salary)
+    salary = ''
 
 
     return render_template('EdtandDeleteEmp.html',first_name = first_name , last_name = last_name,pri_skill = pri_skill,location = location,
