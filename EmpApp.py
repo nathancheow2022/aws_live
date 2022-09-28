@@ -85,7 +85,7 @@ def updateEmp():
     cursor.execute(update_sql, (first_name, last_name, pri_skill, location, salary,emp_id))
     db_conn.commit()
 
-    return render_template('EdtandDeleteEmp.html')
+    return render_template('search.html')
 
 @app.route("/deleteEmp", methods=['POST'])
 def deleteEmp():
@@ -97,7 +97,7 @@ def deleteEmp():
     cursor.execute(delete_sql, (emp_id))
     db_conn.commit()
 
-    return render_template('EdtandDeleteEmp.html')
+    return render_template('search.html')
 
 @app.route("/addemp", methods=['POST','GET'])
 def AddEmp():
