@@ -38,6 +38,11 @@ def searchEmp():
     emp_id = request.form.get('emp_id')
     cursor = db_conn.cursor()
 
+    query8 = "SELECT * FROM employee WHERE emp_id = '{}'".format(emp_id)
+    cursor.execute(query8)
+    name = cursor.fetchall()
+
+
     query2 = "SELECT first_name FROM employee WHERE emp_id = '{}'".format(emp_id)
     cursor.execute(query2)
     first_name = cursor.fetchone()
@@ -61,7 +66,7 @@ def searchEmp():
     cursor.execute(query6)
     salary = cursor.fetchone()
 
-    return render_template('EdtandDeleteEmp.html',first_name = first_name , last_name = last_name,pri_skill = pri_skill,location = location,
+    return render_template('EdtandDeleteEmp.html',first_name = name , last_name = last_name,pri_skill = pri_skill,location = location,
                            salary = salary,emp_id = emp_id)
 
 @app.route("/about", methods=['POST'])
