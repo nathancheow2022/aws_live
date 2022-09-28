@@ -35,7 +35,7 @@ def searchEmpButton():
 
 @app.route("/searchEmp", methods=['GET'])
 def searchEmp():
-    emp_id = request.form.get("emp")
+    emp_id = request.form("emp")
     cursor = db_conn.cursor()
 
     query = "SELECT first_name FROM employee WHERE emp_id = '{}'".format(emp_id)
@@ -84,7 +84,6 @@ def updateEmp():
 
 @app.route("/deleteEmp", methods=['POST'])
 def deleteEmp():
-
     emp_id = request.form.get('emp_id')
     
     delete_sql = "Delete from employee where emp_id = %s"
