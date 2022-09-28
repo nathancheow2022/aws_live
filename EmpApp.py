@@ -35,12 +35,13 @@ def searchEmpButton():
 
 @app.route("/searchEmp", methods=['GET', 'POST'])
 def searchEmp():
-    emp_id = request.form.get("emp_id")
+    emp_id = request.form.get('emp_id')
     cursor = db_conn.cursor()
 
     query = "SELECT first_name FROM employee WHERE emp_id = '{}'".format(emp_id)
     cursor.execute(query)
     first_name = cursor.fetchone()
+    first_name =''
 
     query2 = "SELECT last_name FROM employee WHERE emp_id = '{}'".format(emp_id)
     cursor.execute(query2)
@@ -57,6 +58,7 @@ def searchEmp():
     query5 = "SELECT salary FROM employee WHERE emp_id = '{}'".format(emp_id)
     cursor.execute(query5)
     salary = cursor.fetchone()
+
 
     return render_template('EdtandDeleteEmp.html',first_name = first_name , last_name = last_name,pri_skill = pri_skill,location = location,
                            salary = salary,emp_id = emp_id)
