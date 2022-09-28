@@ -1,25 +1,23 @@
 ﻿<!DOCTYPE html>
-<html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
-	<meta name="viewport" contect="width=device-width,initial-scale="1.0">
-	<title>Search Bar</title>
-	<link rel="stylesheet" href="style.css">
+    <meta charset="utf-8" />
+    <title>Employee Search</title>
 </head>
-<body>
 
-
-
-<div class="container">
+    <div class="container">
 		<form action="/searchEmp" class="search-bar" method="GET">
-			<input type="text" placeholder="Search Employee Detail" id="emp_id" name="emp_id" />
+			<input type="text" placeholder="Search Something..." id="emp_id" name = "emp_id">
 			<button type="submit" />
 			<img src="{{ url_for('static',filename='search.png') }}" style="width:20px;height:20px;">
 		</form>
-</div>
-
+	</div>
+<body>
 
 </body>
 </html>
+
 
 <style>
 *{
