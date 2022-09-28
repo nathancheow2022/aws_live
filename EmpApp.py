@@ -1,3 +1,4 @@
+from crypt import methods
 from flask import Flask, render_template, request
 from pymysql import connections
 import os
@@ -68,6 +69,10 @@ def searchEmp():
     return render_template('EdtandDeleteEmp.html',emp_id = emp_id,first_name=first_name,last_name = last_name,pri_skill = pri_skill,
                            location = location, salary = salary)
 
+@app.route("/backMain", methods=['POST'])
+def backMain():
+
+    return render_template('registration.html')
 
 
 @app.route("/updateEmp", methods=['POST'])
