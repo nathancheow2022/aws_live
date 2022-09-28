@@ -106,7 +106,7 @@ def deleteEmp():
 
 @app.route("/addemp", methods=['POST','GET'])
 def AddEmp():
-     emp_id = request.form['emp_id']
+    emp_id = request.form['emp_id']
     first_name = request.form['first_name']
     last_name = request.form['last_name']
     pri_skill = request.form['pri_skill']
