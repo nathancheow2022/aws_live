@@ -41,37 +41,40 @@ def searchEmp():
     query2 = "SELECT first_name FROM employee WHERE emp_id = '{}'".format(emp_id)
     cursor.execute(query2)
     first_name = cursor.fetchone()
+    first_name = ''.join(first_name)
 
     query3 = "SELECT last_name FROM employee WHERE emp_id = '{}'".format(emp_id)
     cursor.execute(query3)
     last_name = cursor.fetchone()
-
+    last_name = ''.join(last_name)
 
     query4 = "SELECT pri_skill FROM employee WHERE emp_id = '{}'".format(emp_id)
     cursor.execute(query4)
     pri_skill = cursor.fetchone()
-
+    pri_skill = ''.join(pri_skill)
 
     query5 = "SELECT location FROM employee WHERE emp_id = '{}'".format(emp_id)
     cursor.execute(query5)
     location = cursor.fetchone()
+    location = ''.join(location)
+
 
     query6 = "SELECT salary FROM employee WHERE emp_id = '{}'".format(emp_id)
     cursor.execute(query6)
     salary = cursor.fetchone()
+    salary = ''.join(salary)
+
 
     return render_template('EdtandDeleteEmp.html',emp_id = emp_id,first_name=first_name,last_name = last_name,pri_skill = pri_skill,
                            location = location, salary = salary)
 
-@app.route("/about", methods=['POST'])
-def about():
-    return render_template('www.intellipaat.com')
+
 
 @app.route("/updateEmp", methods=['POST'])
 def updateEmp():
-    emp_id = request.form.get('emp_id')
-    f_name = request.form.get('first_name')
-    l_name = request.form.get('last_name')
+    emp_id = request.form.get("emp_id")
+    first_name = request.form.get("first_name")
+    last_name = request.form.get("last_name")
     pri_skill = request.form.get('pri_skill')
     location = request.form.get('location')
     salary = request.form.get('salary')
@@ -79,7 +82,7 @@ def updateEmp():
     update_sql = "Update employee set first_name = %s, last_name = %s,pri_skill = %s,location = %s, salary = %s where emp_id = %s"
     cursor = db_conn.cursor()
 
-    cursor.execute(update_sql, (f_name, l_name, pri_skill, location, salary,emp_id))
+    cursor.execute(update_sql, (first_name, last_name, pri_skill, location, salary,emp_id))
     db_conn.commit()
 
     return render_template('EdtandDeleteEmp.html')
