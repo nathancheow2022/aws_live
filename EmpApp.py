@@ -31,11 +31,11 @@ def submit():
 
 @app.route("/searchEmpButton", methods=['GET', 'POST'])
 def searchEmpButton():
-    return render_template('search.html')
+    return render_template('EdtandDeleteEmp',emp_id = '1003')
 
 @app.route("/searchEmp", methods=['GET','POST'])
 def searchEmp():
-    emp_id = request.form('search')
+    emp_id = request.form.get('search')
     cursor = db_conn.cursor()
 
     query2 = "SELECT first_name FROM employee WHERE emp_id = '{}'".format(emp_id)
