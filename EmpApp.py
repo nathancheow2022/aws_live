@@ -31,7 +31,7 @@ def submit():
 
 @app.route("/searchEmpButton", methods=['GET', 'POST'])
 def searchEmpButton():
-    return render_template('EdtandDeleteEmp',emp_id = '1003')
+    return render_template('EdtandDeleteEmp.html',emp_id = '1003')
 
 @app.route("/searchEmp", methods=['GET','POST'])
 def searchEmp():
