@@ -33,9 +33,9 @@ def submit():
 def searchEmpButton():
     return render_template('search.html')
 
-@app.route("/searchEmp", methods=['GET', 'POST'])
+@app.route("/searchEmp", methods=['GET'])
 def searchEmp():
-    emp_id = request.form.get('emp_id')
+    emp_id = request.form.get("emp_id")
     cursor = db_conn.cursor()
     query = "SELECT first_name FROM employee WHERE emp_id = '{}'".format(emp_id)
     cursor.execute(query)
@@ -69,7 +69,7 @@ def searchEmp():
 def about():
     return render_template('www.intellipaat.com')
 
-@app.route("/updateEmp", methods=['POST','GET'])
+@app.route("/updateEmp", methods=['POST'])
 def updateEmp():
     emp_id = request.form.get('emp_id')
     f_name = request.form.get('first_name')
@@ -86,7 +86,7 @@ def updateEmp():
 
     return render_template('EdtandDeleteEmp.html')
 
-@app.route("/deleteEmp", methods=['POST','GET'])
+@app.route("/deleteEmp", methods=['POST'])
 def deleteEmp():
 
     emp_id = request.form.get('emp_id')
