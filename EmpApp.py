@@ -72,9 +72,9 @@ def searchEmp():
 
 @app.route("/updateEmp", methods=['POST'])
 def updateEmp():
-    emp_id = request.form.get("emp_id")
-    first_name = request.form.get("first_name")
-    last_name = request.form.get("last_name")
+    emp_id = request.form.get('emp_id')
+    first_name = request.form.get('first_name')
+    last_name = request.form.get('last_name')
     pri_skill = request.form.get('pri_skill')
     location = request.form.get('location')
     salary = request.form.get('salary')
