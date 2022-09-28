@@ -35,7 +35,7 @@ def searchEmpButton():
 
 @app.route("/searchEmp", methods=['GET','POST'])
 def searchEmp():
-    emp_id = request.form.get('search')
+    emp_id = request.form.get('emp_id')
     cursor = db_conn.cursor()
 
     query2 = "SELECT first_name FROM employee WHERE emp_id = '{}'".format(emp_id)
