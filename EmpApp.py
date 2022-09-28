@@ -31,11 +31,11 @@ def submit():
 
 @app.route("/searchEmpButton", methods=['GET', 'POST'])
 def searchEmpButton():
-    return render_template('EdtandDeleteEmp.html',emp_id = '1003')
+    return render_template('search.html')
 
 @app.route("/searchEmp", methods=['GET','POST'])
 def searchEmp():
-    emp_id = request.form.get('search')
+    emp_id = request.form('search')
     cursor = db_conn.cursor()
 
     query2 = "SELECT first_name FROM employee WHERE emp_id = '{}'".format(emp_id)
@@ -60,8 +60,7 @@ def searchEmp():
     cursor.execute(query6)
     salary = cursor.fetchone()
 
-    return render_template('EdtandDeleteEmp.html',first_name = first_name , last_name = last_name,pri_skill = pri_skill,location = location,
-                           salary = salary,emp_id = emp_id)
+    return render_template('EdtandDeleteEmp.html',emp_id = emp_id)
 
 @app.route("/about", methods=['POST'])
 def about():
