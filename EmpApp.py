@@ -43,31 +43,8 @@ def searchEmp():
     name = cursor.fetchall()
 
 
-    query2 = "SELECT first_name FROM employee WHERE emp_id = '{}'".format(emp_id)
-    cursor.execute(query2)
-    first_name = cursor.fetchone()
-    first_name = ''.join(first_name)
 
-    query3 = "SELECT last_name FROM employee WHERE emp_id = '{}'".format(emp_id)
-    cursor.execute(query3)
-    last_name = cursor.fetchone()
-
-
-    query4 = "SELECT pri_skill FROM employee WHERE emp_id = '{}'".format(emp_id)
-    cursor.execute(query4)
-    pri_skill = cursor.fetchone()
-
-
-    query5 = "SELECT location FROM employee WHERE emp_id = '{}'".format(emp_id)
-    cursor.execute(query5)
-    location = cursor.fetchone()
-
-    query6 = "SELECT salary FROM employee WHERE emp_id = '{}'".format(emp_id)
-    cursor.execute(query6)
-    salary = cursor.fetchone()
-
-    return render_template('EdtandDeleteEmp.html',first_name = name , last_name = last_name,pri_skill = pri_skill,location = location,
-                           salary = salary,emp_id = emp_id)
+    return render_template('EdtandDeleteEmp.html',first_name = name)
 
 @app.route("/about", methods=['POST'])
 def about():
