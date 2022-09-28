@@ -33,7 +33,7 @@ def submit():
 def searchEmpButton():
     return render_template('search.html')
 
-@app.route("/searchEmp", methods=['GET', 'POST'])
+@app.route("/searchEmp", methods=['GET','POST'])
 def searchEmp():
     emp_id = request.form.get('emp_id')
     cursor = db_conn.cursor()
@@ -41,32 +41,33 @@ def searchEmp():
     query = "SELECT emp_id FROM employee WHERE emp_id = '{}'".format(emp_id)
     cursor.execute(query)
     emp_id = cursor.fetchone()
-    emp_id = ''
+    emp_id = ''.join(emp_id)
 
-    query1 = "SELECT first_name FROM employee WHERE emp_id = '{}'".format(emp_id)
-    cursor.execute(query1)
-    first_name = cursor.fetchone()
-    first_name =' '
-
-    query2 = "SELECT last_name FROM employee WHERE emp_id = '{}'".format(emp_id)
+    query2 = "SELECT first_name FROM employee WHERE emp_id = '{}'".format(emp_id)
     cursor.execute(query2)
-    last_name = cursor.fetchone()
-    last_name = ''
+    first_name = cursor.fetchone()
+    first_name = ''.join(first_name)
 
-    query3 = "SELECT pri_skill FROM employee WHERE emp_id = '{}'".format(emp_id)
+    query3 = "SELECT last_name FROM employee WHERE emp_id = '{}'".format(emp_id)
     cursor.execute(query3)
-    pri_skill = cursor.fetchone()
-    pri_skill = ''
+    last_name = cursor.fetchone()
+    last_name = ''.join(last_name)
 
-    query4 = "SELECT location FROM employee WHERE emp_id = '{}'".format(emp_id)
+
+    query4 = "SELECT pri_skill FROM employee WHERE emp_id = '{}'".format(emp_id)
     cursor.execute(query4)
-    location = cursor.fetchone()
-    location = ''
+    pri_skill = cursor.fetchone()
+    pri_skill = ''.join(pri_skill)
 
-    query5 = "SELECT salary FROM employee WHERE emp_id = '{}'".format(emp_id)
+    query5 = "SELECT location FROM employee WHERE emp_id = '{}'".format(emp_id)
     cursor.execute(query5)
+    location = cursor.fetchone()
+    location = ''.join(location)
+
+    query6 = "SELECT salary FROM employee WHERE emp_id = '{}'".format(emp_id)
+    cursor.execute(query6)
     salary = cursor.fetchone()
-    salary = ''
+    salary = ''.join(salary)
 
 
     return render_template('EdtandDeleteEmp.html',first_name = first_name , last_name = last_name,pri_skill = pri_skill,location = location,
