@@ -38,10 +38,15 @@ def searchEmp():
     emp_id = request.form.get('emp_id')
     cursor = db_conn.cursor()
 
+    query = "SELECT emp_id FROM employee WHERE emp_id = '{}'".format(emp_id)
+    cursor.execute(query)
+    emp_id = cursor.fenchone()
+    emp_id = ''
+
     query = "SELECT first_name FROM employee WHERE emp_id = '{}'".format(emp_id)
     cursor.execute(query)
     first_name = cursor.fetchone()
-    first_name =''
+    first_name =''.join(first_name)
 
     query2 = "SELECT last_name FROM employee WHERE emp_id = '{}'".format(emp_id)
     cursor.execute(query2)
