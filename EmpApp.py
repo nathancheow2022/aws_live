@@ -40,11 +40,11 @@ def searchEmp():
 
     query = "SELECT emp_id FROM employee WHERE emp_id = '{}'".format(emp_id)
     cursor.execute(query)
-    emp_id = cursor.fenchone()
+    emp_id = cursor.fetchone()
     emp_id = ''
 
-    query = "SELECT first_name FROM employee WHERE emp_id = '{}'".format(emp_id)
-    cursor.execute(query)
+    query1 = "SELECT first_name FROM employee WHERE emp_id = '{}'".format(emp_id)
+    cursor.execute(query1)
     first_name = cursor.fetchone()
     first_name =''.join(first_name)
 
