@@ -77,36 +77,7 @@ def backMain():
 
 @app.route("/updateEmp", methods=['POST'])
 def updateEmp():
-    emp_id = request.form.get('emp_id')
-    first_name = request.form.get('first_name')
-    last_name = request.form.get('last_name')
-    pri_skill = request.form.get('pri_skill')
-    location = request.form.get('location')
-    salary = request.form.get('salary')
-
-    update_sql = "Update employee set first_name = %s, last_name = %s,pri_skill = %s,location = %s, salary = %s where emp_id = %s"
-    cursor = db_conn.cursor()
-
-    cursor.execute(update_sql, (first_name, last_name, pri_skill, location, salary,emp_id))
-    db_conn.commit()
-
-    return render_template('search.html')
-
-@app.route("/deleteEmp", methods=['POST'])
-def deleteEmp():
-    emp_id = request.form.get('emp_id')
-    
-    delete_sql = "Delete from employee where emp_id = %s"
-    cursor = db_conn.cursor()
-
-    cursor.execute(delete_sql, (emp_id))
-    db_conn.commit()
-
-    return render_template('search.html')
-
-@app.route("/addemp", methods=['POST','GET'])
-def AddEmp():
-    emp_id = request.form['emp_id']
+     emp_id = request.form['emp_id']
     first_name = request.form['first_name']
     last_name = request.form['last_name']
     pri_skill = request.form['pri_skill']
@@ -120,15 +91,16 @@ def AddEmp():
     if emp_image_file.filename == "":
         return "Please select a file"
 
-     try:
-        cursor.execute(insert_sql, (emp_id, first_name, last_name, pri_skill, location, salary))
+    try:
+
+        cursor.execute(insert_sql, (emp_id, first_name, last_name, pri_skill, location,salary))
         db_conn.commit()
         emp_name = "" + first_name + " " + last_name
         # Uplaod image file in S3 #
         emp_image_file_name_in_s3 = "emp-id-" + str(emp_id) + "_image_file"
         s3 = boto3.resource('s3')
-
-        try:
+        
+     try:
             print("Data inserted in MySQL RDS... uploading image to S3...")
             s3.Bucket(custombucket).put_object(Key=emp_image_file_name_in_s3, Body=emp_image_file)
             bucket_location = boto3.client('s3').get_bucket_location(Bucket=custombucket)
